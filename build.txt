@@ -1,0 +1,18 @@
+displayName		= Tomat's Utilities
+author			= Tomat
+version			= 1.0.0.0
+
+side			= Both
+
+dllReferences	=
+modReferences	=
+weakReferences	=
+
+sortAfter		=
+sortBefore		=
+
+noCompile		= false
+hideCode		= false
+hideResources	= false
+includeSource	= true
+includePDB		= true
