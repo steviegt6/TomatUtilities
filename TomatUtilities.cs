@@ -1,23 +1,43 @@
-using TomatUtilities.Core.NewLoader;
+using System;
+using Terraria.ModLoader;
+using TomatUtilities.Core.Logging;
 using TomatUtilities.GlowMask;
 using TomatUtilities.Reflection;
 
 namespace TomatUtilities
 {
-    public class TomatUtilities : TomatMod
+    public class TomatUtilities : Mod
     {
+        public IModLogger ModLogger { get; }
+
         public TomatUtilities()
         {
-            ReflectionCache.Instance = new ReflectionCache();
-            GlowMaskRepository.Instance = new GlowMaskRepository();
+            ModLogger = new ModLogger(Logger);
+
+            ExecutePrivately(() =>
+            {
+                ReflectionCache.Instance = new ReflectionCache();
+                GlowMaskRepository.Instance = new GlowMaskRepository();
+            });
         }
 
         public override void Unload()
         {
-            GlowMaskRepository.Instance.RemoveGlowMasks();
+            base.Unload();
 
-            ReflectionCache.Instance = null;
-            GlowMaskRepository.Instance = null;
+            ExecutePrivately(() =>
+            {
+                GlowMaskRepository.Instance.RemoveGlowMasks();
+
+                ReflectionCache.Instance = null;
+                GlowMaskRepository.Instance = null;
+            });
+        }
+
+        private void ExecutePrivately(Action action)
+        {
+            if (GetType().Assembly.FullName.StartsWith("TomatUtilities, "))
+                action?.Invoke();
         }
     }
 }
