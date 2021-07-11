@@ -9,7 +9,7 @@ namespace TomatUtilities.Reflection
     {
         private readonly Dictionary<ReflectionType, Dictionary<string, object>> Cache;
 
-        public static IReflectionCache Instance { get; internal set; }
+        public static IReflectionCache Instance { get; set; }
 
         public ReflectionCache()
         {

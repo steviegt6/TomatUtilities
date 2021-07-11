@@ -9,7 +9,7 @@ namespace TomatUtilities.GlowMask
 {
     public class GlowMaskRepository : IGlowMaskRepository
     {
-        public static IGlowMaskRepository Instance { get; internal set; }
+        public static IGlowMaskRepository Instance { get; set; }
 
         public readonly Dictionary<string, short> GlowMaskCollection;
 
