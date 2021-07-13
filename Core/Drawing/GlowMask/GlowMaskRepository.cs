@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ModLoader;
 using TomatUtilities.Core.Extensions;
 
-namespace TomatUtilities.GlowMask
+namespace TomatUtilities.Core.Drawing.GlowMask
 {
     public class GlowMaskRepository : IGlowMaskRepository
     {
@@ -34,7 +34,7 @@ namespace TomatUtilities.GlowMask
             Texture2D texture = ModContent.GetTexture(assetPath);
             texture.Name = $"AddedByTomat{texture.Name}";
 
-            Main.glowMaskTexture.AddToArray(ModContent.GetTexture(assetPath));
+            Main.glowMaskTexture.AddToArray(texture);
             GlowMaskCollection.Add(assetPath, count);
             return count;
         }

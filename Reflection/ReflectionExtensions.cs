@@ -51,20 +51,16 @@ namespace TomatUtilities.Reflection
         public static void SetValue(this PropertyInfo info, object instance = null, object fieldValue = null) =>
             ReflectionCache.Instance.SetValue(info, instance, fieldValue);
 
-        public static TReturn GetFieldValue<TType, TReturn>(this TType instance, string field,
-            object fieldInstance = null) =>
-            ReflectionCache.Instance.GetFieldValue<TType, TReturn>(instance, field, fieldInstance);
+        public static TReturn GetFieldValue<TType, TReturn>(this TType instance, string field) =>
+            ReflectionCache.Instance.GetFieldValue<TType, TReturn>(instance, field);
 
-        public static TReturn GetPropertyValue<TType, TReturn>(this TType instance, string property,
-            object fieldInstance = null) =>
-            ReflectionCache.Instance.GetPropertyValue<TType, TReturn>(instance, property, fieldInstance);
+        public static TReturn GetPropertyValue<TType, TReturn>(this TType instance, string property) =>
+            ReflectionCache.Instance.GetPropertyValue<TType, TReturn>(instance, property);
 
-        public static void SetFieldValue<TType>(this TType instance, string field, object fieldInstance = null,
-            object fieldValue = null) =>
-            ReflectionCache.Instance.SetFieldValue(instance, field, fieldInstance, fieldValue);
+        public static void SetFieldValue<TType>(this TType instance, string field, object fieldValue = null) =>
+            ReflectionCache.Instance.SetFieldValue(instance, field, fieldValue);
 
-        public static void SetPropertyValue<TType>(this TType instance, string property, object fieldInstance = null,
-            object fieldValue = null) =>
-            ReflectionCache.Instance.SetPropertyValue(instance, property, fieldInstance, fieldValue);
+        public static void SetPropertyValue<TType>(this TType instance, string property, object fieldValue = null) =>
+            ReflectionCache.Instance.SetPropertyValue(instance, property, fieldValue);
     }
 }

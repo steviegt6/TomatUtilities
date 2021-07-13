@@ -49,13 +49,12 @@ namespace TomatUtilities.Reflection
 
         void SetValue(PropertyInfo info, object fieldInstance = null, object fieldValue = null);
 
-        TReturn GetFieldValue<TType, TReturn>(TType instance, string field, object fieldInstance = null);
+        TReturn GetFieldValue<TType, TReturn>(TType instance, string field);
 
-        TReturn GetPropertyValue<TType, TReturn>(TType instance, string property, object fieldInstance = null);
+        TReturn GetPropertyValue<TType, TReturn>(TType instance, string property);
 
-        void SetFieldValue<TType>(TType instance, string field, object fieldInstance = null, object fieldValue = null);
+        void SetFieldValue<TType>(TType instance, string field, object fieldValue = null);
 
-        void SetPropertyValue<TType>(TType instance, string property, object fieldInstance = null,
-            object fieldValue = null);
+        void SetPropertyValue<TType>(TType instance, string property, object fieldValue = null);
     }
 }

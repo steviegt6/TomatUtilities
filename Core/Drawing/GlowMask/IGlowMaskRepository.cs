@@ -1,4 +1,4 @@
-﻿namespace TomatUtilities.GlowMask
+﻿namespace TomatUtilities.Core.Drawing.GlowMask
 {
     public interface IGlowMaskRepository
     {

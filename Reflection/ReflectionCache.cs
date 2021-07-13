@@ -94,17 +94,17 @@ namespace TomatUtilities.Reflection
         public void SetValue(PropertyInfo info, object fieldInstance = null, object fieldValue = null) =>
             info.SetValue(fieldInstance, fieldValue);
 
-        public TReturn GetFieldValue<TType, TReturn>(TType instance, string field, object fieldInstance = null) =>
-            (TReturn) typeof(TType).GetCachedField(field).GetValue(fieldInstance);
+        public TReturn GetFieldValue<TType, TReturn>(TType instance, string field) =>
+            (TReturn) typeof(TType).GetCachedField(field).GetValue(instance);
 
-        public TReturn GetPropertyValue<TType, TReturn>(TType instance, string property, object fieldInstance = null) =>
-            (TReturn) typeof(TType).GetCachedField(property).GetValue(fieldInstance);
+        public TReturn GetPropertyValue<TType, TReturn>(TType instance, string property) =>
+            (TReturn) typeof(TType).GetCachedField(property).GetValue(instance);
 
-        public void SetFieldValue<TType>(TType instance, string field, object fieldInstance = null,
-            object fieldValue = null) => typeof(TType).GetCachedField(field).SetValue(fieldInstance);
+        public void SetFieldValue<TType>(TType instance, string field, object fieldValue = null) =>
+            typeof(TType).GetCachedField(field).SetValue(instance, fieldValue);
 
-        public void SetPropertyValue<TType>(TType instance, string property, object fieldInstance = null,
-            object fieldValue = null) => typeof(TType).GetCachedField(property).SetValue(fieldInstance);
+        public void SetPropertyValue<TType>(TType instance, string property, object fieldValue = null) =>
+            typeof(TType).GetCachedField(property).SetValue(instance, fieldValue);
 
     }
 }
